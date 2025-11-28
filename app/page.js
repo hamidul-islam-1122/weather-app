@@ -17,13 +17,24 @@ export default function Home() {
     <>
       <Navbar onSearch={handleSearch} />
       <section>
-        
+
         {weather && (
-          <div>
-            <h2>{weather.location.name}, {weather.location.country}</h2>
-            <p>Temperature: {weather.current.temp_c}°C</p>
-            <p>Condition: {weather.current.condition.text}</p>
-            <img src={weather.current.condition.icon} alt="icon" />
+
+          <div className="center flex items-center justify-center ">
+            <div className="backdrop-blur-md bg-white/30 p-4 rounded-lg shadow-lg my-4">
+              <img src={weather.current.condition.icon} alt="icon" />
+              <p className="flex my-1 items-center">
+                Temperature:
+                <span className="text-3xl">{weather.current.temp_c}</span>
+                <span className="text-3xl">°C</span>
+              </p>
+              <h2 className="text-lg">
+                {weather.location.name}, {weather.location.country}
+              </h2>
+              <p className="text-lg">
+                Condition: {weather.current.condition.text}
+              </p>
+            </div>
           </div>
         )}
       </section>
